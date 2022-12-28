@@ -1,13 +1,8 @@
 package com.jbillote.framedata.repository
 
-import com.fasterxml.jackson.core.type.TypeReference
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.jbillote.framedata.model.Character
-import com.jbillote.framedata.model.Move
 import com.jbillote.framedata.util.CharacterNameMap.CHARACTER_NAME_MAP
 import com.jbillote.framedata.util.FrameDataLoader.loadCharacterMovesFromJSON
-import org.springframework.core.io.ClassPathResource
 import org.springframework.stereotype.Repository
 
 @Repository
