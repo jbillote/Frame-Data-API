@@ -17,5 +17,5 @@ class CharacterController {
     fun getCharacterNicknames() : List<String> = characterRepository.getCharacterNicknames()
 
     @QueryMapping
-    fun getCharacter(@Argument character: String) : Character = characterRepository.getCharacter(character)
+    fun getCharacter(@Argument character: String) : Character = characterRepository.getCharacter("mbtl", character)
 }

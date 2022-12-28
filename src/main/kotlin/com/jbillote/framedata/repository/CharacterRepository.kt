@@ -6,6 +6,7 @@ import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.jbillote.framedata.model.Character
 import com.jbillote.framedata.model.Move
 import com.jbillote.framedata.util.CharacterNameMap.CHARACTER_NAME_MAP
+import com.jbillote.framedata.util.FrameDataLoader.loadCharacterMovesFromJSON
 import org.springframework.core.io.ClassPathResource
 import org.springframework.stereotype.Repository
 
@@ -14,21 +15,14 @@ class CharacterRepository {
 
     fun getCharacterNicknames() : List<String> = CHARACTER_NAME_MAP.keys.toList()
 
-    fun getCharacter(character: String) : Character {
+    fun getCharacter(game: String, character: String) : Character {
         val characterName = CHARACTER_NAME_MAP[character] ?: throw Exception()
-
-        val resource = ClassPathResource("data/mbtl/$character.json")
-
-        val characterJSON = resource.file.readText(Charsets.UTF_8)
-        val mapper = jacksonObjectMapper()
-        mapper.registerKotlinModule()
-        val typeRef: TypeReference<Map<String, Move>> = object : TypeReference<Map<String, Move>>() {}
-        val map = mapper.readValue(characterJSON, typeRef)
+        val moves = loadCharacterMovesFromJSON(game, character)
 
         return Character(
             name = characterName,
-            moves = map,
-            inputs = map.keys.toList()
+            moves = moves,
+            inputs = moves.keys.toList()
         )
     }
 }
