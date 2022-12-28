@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository
 class MoveRepository {
 
     fun getMove(game: String, character: String, input: String): Move {
-        CHARACTER_NAME_MAP[character] ?: throw Exception()
-        val moves = loadCharacterMovesFromJSON(game, character)
+        CHARACTER_NAME_MAP[character.lowercase()] ?: throw Exception()
+        val moves = loadCharacterMovesFromJSON(game.lowercase(), character.lowercase())
 
-        return moves[input] ?: throw Exception()
+        return moves[input.uppercase()] ?: throw Exception()
     }
 }

@@ -11,8 +11,8 @@ class CharacterRepository {
     fun getCharacterNicknames() : List<String> = CHARACTER_NAME_MAP.keys.toList()
 
     fun getCharacter(game: String, character: String) : Character {
-        val characterName = CHARACTER_NAME_MAP[character] ?: throw Exception()
-        val moves = loadCharacterMovesFromJSON(game, character)
+        val characterName = CHARACTER_NAME_MAP[character.lowercase()] ?: throw Exception()
+        val moves = loadCharacterMovesFromJSON(game.lowercase(), character.lowercase())
 
         return Character(
             name = characterName,

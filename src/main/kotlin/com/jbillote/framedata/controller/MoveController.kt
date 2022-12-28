@@ -15,5 +15,5 @@ class MoveController {
 
     @QueryMapping
     fun getMove(@Argument character: String, @Argument input: String) :
-            Move = moveRepository.getMove("mbtl", character, input)
+            Move = moveRepository.getMove("mbtl", character.lowercase(), input.uppercase())
 }

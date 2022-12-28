@@ -11,7 +11,7 @@ object FrameDataLoader {
 
     fun loadCharacterMovesFromJSON(game: String, nickname: String) : Map<String, Move> {
         // Throw exception if character nickname provided doesn't have a mapping for name
-        CHARACTER_NAME_MAP[nickname] ?: throw Exception()
+        CHARACTER_NAME_MAP[nickname.lowercase()] ?: throw Exception()
 
         val resource = ClassPathResource("data/$game/$nickname.json")
 
