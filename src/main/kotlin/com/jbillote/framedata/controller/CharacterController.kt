@@ -14,7 +14,8 @@ class CharacterController {
     lateinit var characterRepository: CharacterRepository
 
     @QueryMapping
-    fun getCharacter(@Argument character: String) : Character {
-        return characterRepository.getCharacter(character)
-    }
+    fun getCharacterNicknames() : List<String> = characterRepository.getCharacterNicknames()
+
+    @QueryMapping
+    fun getCharacter(@Argument character: String) : Character = characterRepository.getCharacter(character)
 }

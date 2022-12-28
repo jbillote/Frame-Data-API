@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository
 @Repository
 class CharacterRepository {
 
+    fun getCharacterNicknames() : List<String> = CHARACTER_NAME_MAP.keys.toList()
+
     fun getCharacter(character: String) : Character {
         val characterName = CHARACTER_NAME_MAP[character] ?: throw Exception()
 
