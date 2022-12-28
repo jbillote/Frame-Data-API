@@ -1,4 +1,8 @@
 type Character {
-    name: String
-    moves: [Move]
+    name: String!
+    inputs: [String]
+}
+
+extend type Query {
+    getCharacter(character: String) : Character
 }
