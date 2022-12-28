@@ -1,0 +1,20 @@
+type Move {
+    name: String
+    input: String
+    damage: String
+    block: String
+    cancel: String
+    property: String
+    cost: String
+    attribute: String
+    startup: String
+    active: String
+    recovery: String
+    overall: String
+    advantage: String
+    invuln: String
+}
+
+extend type Query {
+    getMove(character: String, input: String) : String
+}
