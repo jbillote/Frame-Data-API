@@ -15,7 +15,7 @@ object FrameDataLoader {
 
         val resource = ClassPathResource("data/$game/$nickname.json")
 
-        val characterJSON = resource.file.readText(Charsets.UTF_8)
+        val characterJSON = resource.inputStream.bufferedReader().readText()
         val mapper = jacksonObjectMapper()
         mapper.registerKotlinModule()
         val typeRef: TypeReference<Map<String, Move>> = object : TypeReference<Map<String, Move>>() {}
