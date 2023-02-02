@@ -4,8 +4,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class FrameDataApiApplication
-
-fun main(args: Array<String>) {
-    runApplication<FrameDataApiApplication>(*args)
+open class FrameDataApiApplication {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            runApplication<FrameDataApiApplication>(*args)
+        }
+    }
 }
