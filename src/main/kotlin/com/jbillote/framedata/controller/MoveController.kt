@@ -14,6 +14,6 @@ class MoveController {
     lateinit var moveRepository: MoveRepository
 
     @QueryMapping
-    fun getMove(@Argument character: String, @Argument input: String) :
-            Move = moveRepository.getMove("mbtl", character.lowercase(), input.uppercase())
+    fun getMove(@Argument game: String, @Argument character: String, @Argument input: String) :
+            Move = moveRepository.getMove(game, character.lowercase(), input.uppercase())
 }

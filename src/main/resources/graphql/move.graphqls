@@ -16,5 +16,5 @@ type Move {
 }
 
 extend type Query {
-    getMove(character: String, input: String) : Move
+    getMove(game: String, character: String, input: String) : Move
 }
