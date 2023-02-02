@@ -44,6 +44,13 @@ tasks.withType(Jar) {
     }
 }
 
+jar {
+    enabled = false
+    manifest {
+        attributes('Main-Class': 'com.jbillote.framedata.FrameDataApiApplication')
+    }
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
